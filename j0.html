@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function setCookies() {
+                let firstName = document.getElementById("firstname").value;
+                let email = document.getElementById("email").value;
+                document.cookie = `firstname=${firstName}`;
+                document.cookie = `email=${email};`;
+            }
+            function showCookies() {
+                let newParagraph = document.createElement("p");
+                let cookies = document.cookie;
+                newParagraph.innerHTML = `Cookies: ${cookies}`;
+                document.body.append(newParagraph);
+            }
+            document.getElementById("set").addEventListener("click", setCookies);
+            document.getElementById("get").addEventListener("click", showCookies);
+        });
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Login to the website</h1>
+    <input type="text" id="firstname" placeholder="Firstname">
+    <input type="text" id="email" placeholder="email">
+    <button id="set">Log me in</button>
+    
+    <h1>Cookies</h1>
+    
+    <button id="get">Show the cookies</button>    
+</body>
+</html>

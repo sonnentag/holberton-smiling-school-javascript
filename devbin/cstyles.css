@@ -94,14 +94,18 @@ small {
   width: 30px;
 }
 
-#tutorials, #faq, #videos {
+#tutorials, #faq {
   background-color: var(--color-white);
-  height: 520px;
+  height: 500px;
+  width: 80%;
   color: var(--color-black);
 }
 
-#emptypopular-tutorials, #emptylatest-videos  {
-	color: var(--color-purple);
+#videos {
+  background-color: var(--color-white);
+  height: 500px;
+  width: 80%;
+  color: var(--color-black);
 }
 
 #faq {
@@ -128,6 +132,12 @@ small {
   height: 100%;
   color: var(--color-black);
   }
+
+#videos {
+  background-color: var(--color-white);
+  height: 100%;
+  color: var(--color-black);
+}
 
 .card-img {
   height: 160px;
@@ -214,54 +224,33 @@ ul {
     grid-gap: .5rem;
 }
 
-@media screen and (min-width: 577px) {
-
-     footer, #videos, #membership, #tutorials {
-	display: block;
-     }
-}
-@media screen and (max-width: 576px) {
-footer, #videos, #membership, #tutorials {
-	display: none;
-     }
-     .emptyquotes {
-	     flex: 1;
-     }
-.quote-bg {
-     align-self: center;
-}
-}
-@media (max-width: 768px) {
-#recipeCarousel .carousel-inner .carousel-item > div {
+#tutorials    .carousel-inner .carousel-item > div {
         display: none;
     }
-#recipeCarousel .carousel-inner .carousel-item > div:first-child {
+#tutorials    .carousel-inner .carousel-item > div:first-child {
         display: block;
     }
-}
 
-#recipeCarousel .carousel-inner .carousel-item.active,
-#recipeCarousel .carousel-inner .carousel-item-next,
-#recipeCarousel .carousel-inner .carousel-item-prev {
+#tutorials .carousel-inner .carousel-item.active,
+#tutorials .carousel-inner .carousel-item-next,
+#tutorials .carousel-inner .carousel-item-prev {
     display: flex;
 }
 
-/* display 3 */
-@media (min-width: 768px) {
     
-#recipeCarousel     .carousel-inner .carousel-item-right.active,
-#recipeCarousel     .carousel-inner .carousel-item-next {
+#tutorials     .carousel-inner .carousel-item-right.active,
+#tutorials     .carousel-inner .carousel-item-next {
       transform: translateX(33.333%);
     }
     
-#recipeCarousel     .carousel-inner .carousel-item-left.active, 
-#recipeCarousel     .carousel-inner .carousel-item-prev {
+#tutorials     .carousel-inner .carousel-item-left.active, 
+#tutorials     .carousel-inner .carousel-item-prev {
       transform: translateX(-33.333%);
     }
-}
 
-#recipeCarousel .carousel-inner .carousel-item-right,
-#recipeCarousel .carousel-inner .carousel-item-left{ 
+#tutorials .carousel-inner .carousel-item-right,
+#tutorials .carousel-inner .carousel-item-left{ 
   transform: translateX(0);
 }
 
+$('.navbar-toggle').focus(function () { $.addClass('border border-warning'); });
