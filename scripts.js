@@ -1,9 +1,7 @@
 // get id of main element to use elsewhere
+// this should be set to sessionstorage as well. 
 function getMainId() {
-
-	let mainId = $('main').attr('id');
-
-	return mainId;
+	return $('main').attr('id');
 }
 
 // store json results directly to local storage
@@ -19,6 +17,8 @@ function storeJson(carSection) {
 // get json data from api based on main id
 function jApiGetter(carSection) {
 
+// store our json for easy access during our session 
+// (we'll clear it later down below)
   $.ajax({
     url: 'https://smileschool-api.hbtn.info/' + carSection,
     method: 'GET',
@@ -54,14 +54,18 @@ function buildMain(carSection, sData) {
 
   });
 
+// when the timeout that called us is ready, we no longer need the spinner
   $( "#empty" + carSection ).removeClass( "spinner-border" );
 
+// the card carousel divs are color purple for the spinner over white
+	// we want black text on the cards now
   if (carSection !== 'quotes')
  	 $( "#empty" + carSection ).css('color', 'black');
 
+  $( "#empty" + carSection + " .carousel-item" ).first().addClass( "active" );
+
   $( "#empty" + carSection + " .sr-only" ).first().remove();
   $( "#empty" + carSection ).removeAttr( "role" );
-  $( "#empty" + carSection + " .carousel-item" ).first().addClass( "active" );
 }
 
 // do it 
@@ -70,6 +74,7 @@ $( document ).ready(function() {
   $('.navbar-toggle').focus(function () { $.addClass('border border-warning'); });
 
   let mainId = getMainId();
+  // only get what we need
   if (mainId == 'homepage') {
       storeJson('quotes');
       storeJson('popular-tutorials');
@@ -82,7 +87,9 @@ $( document ).ready(function() {
       storeJson('courses');
   }
 
+// wait 1.2 secs to let the api call complete and to demonstrate our spinner
   setTimeout(function(){ 
+  // only build what we need
   if (mainId == 'homepage') {
       buildMain('quotes', JSON.parse(sessionStorage.getItem('quotes'))); 
       buildMain('popular-tutorials', JSON.parse(sessionStorage.getItem('popular-tutorials'))); 
@@ -94,9 +101,9 @@ $( document ).ready(function() {
   if (mainId == 'courses') {
       buildMain('courses', JSON.parse(sessionStorage.getItem('courses'))); 
     }
-  }, 2000);
+  }, 1200);
 
-
+// I don't think anything below is working yet
 $('#tutorials').carousel({
   interval: 10000
 })
