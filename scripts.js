@@ -72,6 +72,8 @@ $( document ).ready(function() {
       storeJson('courses');
   }
 
+  $('.navbar-toggle').focus(function () { $.addClass('border border-warning'); });
+
   setTimeout(function(){ 
   if (mainId == 'homepage') {
       buildMain('quotes', JSON.parse(sessionStorage.getItem('quotes'))); 
@@ -85,6 +87,7 @@ $( document ).ready(function() {
       buildMain('courses', JSON.parse(sessionStorage.getItem('courses'))); 
     }
   }, 2000);
+
 
 $('#tutorials').carousel({
   interval: 10000

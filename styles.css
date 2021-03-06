@@ -250,5 +250,3 @@ ul {
   transform: translateX(0);
 }
 
-
-$('.navbar-toggle').focus(function () { $.addClass('border border-warning'); });
