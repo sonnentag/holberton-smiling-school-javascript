@@ -8,13 +8,17 @@ function getMainId() {
 
 // store json results directly to local storage
 function storeJson(carSection) {
+
 	if (!sessionStorage.getItem(carSection)) {
 		jApiGetter(carSection);
 	}
+	// with another if we can send this to xApiGetter instead
+	// the idea is to check for a class on <main> to specify j or x
 }
 
 // get json data from api based on main id
 function jApiGetter(carSection) {
+
   $.ajax({
     url: 'https://smileschool-api.hbtn.info/' + carSection,
     method: 'GET',
@@ -24,6 +28,7 @@ function jApiGetter(carSection) {
 
     fail: () => { alert(`The backend is not reachable`); }
   });
+
 }
 
 // get xml data from api based on main id
@@ -41,13 +46,14 @@ function buildMain(carSection, sData) {
       "popular-tutorials" : '<div class="carousel-item"><div class="card col-md-4 border-0 my-auto"> <div class="d-flex tutorial-bg justify-content-center align-items-center"> <img src="./images/play.png" class="card-img-over" alt="Play button"> </div> <div class="card-body"> <h5 class="card-title font-weight-bold tutorials-h1">' + sData[i].title + '</h5> <p class="card-text tutorials-p">' + sData[i]["sub-title"] + '</p> <div class="row"> <img class="rounded-circle mx-3 tinythumb" src="' + sData[i].author_pic_url + '"> <p class="purple pt-1">' + sData[i].author + '</p> </div> <div class="row justify-content-between mt-1"> <div class="col"> <span class="score"> <div class="score-wrap"> <span class="stars-active"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> </span> <span class="stars-inactive"> <i class="fa fa-star-o" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </span> </div> </span> </div> <p class="purple mr-3">' + sData[i].duration + '</p> </div> </div> </div> </div>'
     }
 
-
-    let rating = sData[i].star * 20 + "%"; 
     $("#empty" + carSection).append(divTemplates[carSection]);
+
     $("#empty" + carSection + " .tutorial-bg").last().css("background-image", "url(" + sData[i].thumb_url + ")");
-    $(".stars-active").last().width(rating);
+
+    $(".stars-active").last().width(sData[i].star * 20 + "%");
+
   });
-console.log('#empty' + carSection);
+
   $( "#empty" + carSection ).removeClass( "spinner-border" );
 
   if (carSection !== 'quotes')
@@ -61,6 +67,8 @@ console.log('#empty' + carSection);
 // do it 
 $( document ).ready(function() {
 
+  $('.navbar-toggle').focus(function () { $.addClass('border border-warning'); });
+
   let mainId = getMainId();
   if (mainId == 'homepage') {
       storeJson('quotes');
@@ -73,8 +81,6 @@ $( document ).ready(function() {
   if (mainId == 'courses') {
       storeJson('courses');
   }
-
-  $('.navbar-toggle').focus(function () { $.addClass('border border-warning'); });
 
   setTimeout(function(){ 
   if (mainId == 'homepage') {
