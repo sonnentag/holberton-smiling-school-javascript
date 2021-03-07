@@ -1,3 +1,5 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
 :root {
   --color-black: #071629;
   --color-charcoal: rgba(7, 22, 41, 0.501584);
@@ -100,7 +102,7 @@ small {
   color: var(--color-black);
 }
 
-#emptypopular-tutorials, #emptylatest-videos  {
+#emptypopular-tutorials, #emptylatest-videos, #emptycourses  {
 	color: var(--color-purple);
 }
 
@@ -125,7 +127,6 @@ small {
 
 #results {
   background-color: var(--color-white);
-  height: 100%;
   color: var(--color-black);
   }
 
@@ -205,7 +206,7 @@ ul {
 	margin-left: 23px;
 }
 
-#results .card-deck{
+#results .card-deck {
     margin-top: 10px;
     padding-top: 10px;
     margin-left: auto;

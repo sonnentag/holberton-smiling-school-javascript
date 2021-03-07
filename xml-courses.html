@@ -63,35 +63,40 @@
           <!-- Search Bar -->
           <div class="container-fluid searchbar">
             <div class="row p-3 mx-auto">
-              <div class="col-4 text-center">
+              <div class="col-4">
                 <h5>Keywords</h5>
-                <div class="input-group rounded">
-                  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                </div> 
+	 	<input class="form-control" type="text" placeholder="Search for keywords">
               </div>
-              <div class="col-4 text-center">
-                <h5>Topics</h5>
-                <div class="dropdown mx-auto">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Novice</a>
-                  <div class="dropdown-menu dropdown-menu-right">
-                  </div>
-                </div>
+              <div class="col-4">
+		<div class="form-group">
+		  <label for="exampleFormControlSelect1">Topics</label>
+		  <select class="form-control" id="exampleFormControlSelect1">
+		    <option>Novice</option>
+		    <option>2</option>
+		    <option>3</option>
+		    <option>4</option>
+		    <option>5</option>
+		  </select>
+		</div>
               </div>
-              <div class="col-4 text-center">
-                <h5>Sort By</h5>
-                <div class="dropdown mx-auto">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Most Popular</a>
-                  <div class="dropdown-menu dropdown-menu-right">
-                  </div>
-                </div>
+              <div class="col-4">
+		<div class="form-group">
+		  <label for="exampleFormControlSelect1">Sort by</label>
+		  <select class="form-control" id="exampleFormControlSelect1">
+		    <option>Most Popular</option>
+		    <option>2</option>
+		    <option>3</option>
+		    <option>4</option>
+		    <option>5</option>
+		  </select>
+		</div>
               </div>
             </div>
           </div>
 	  <!-- results -->
           <div id="results" class="container-fluid">
-	    <div id="emptycourses" class="card-deck">
-
-            </div>
+	      <div id="emptycourses" class="spinner-border card-deck">
+              </div>
           </div>
 
         </main>
@@ -139,6 +144,6 @@
       <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-      <script src="scripts.js"></script>
+      <script src="xml-scripts.js"></script>
     </body>
 </html>
