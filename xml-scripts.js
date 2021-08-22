@@ -1,13 +1,15 @@
+// alternate version of scripts.js for xml datatype
+
+// simplified logic a bit here since we're not attempting to handle both datatypes in 1 file
+
 // get id of main element to use elsewhere
-// this should be set to sessionstorage as well. 
 function getMainId() {
 	return $('main').attr('id');
 }
 
-// get xml data from api based on main id
+// get quotes as xml data from api based on main id
 function xQuoteGetter() {
-
-$.ajax({
+	$.ajax({
 		type:'GET',
 		url:'https://smileschool-api.hbtn.info/xml/quotes',
 		dataType: 'xml',
@@ -31,13 +33,11 @@ $.ajax({
 			$( "#emptyquotes .carousel-item" ).first().addClass( "active" );
 		}
 	});
-
 }
 
-// get xml data from api based on main id
+// get popular tutorials as xml data from api based on main id
 function xPopulGetter() {
-
-$.ajax({
+	$.ajax({
 		type:'GET',
 		url:'https://smileschool-api.hbtn.info/xml/popular-tutorials',
 		dataType: 'xml',
@@ -69,16 +69,11 @@ $.ajax({
 			$( "#emptypopular-tutorials .carousel-item" ).first().addClass( "active" );
 		}
 	});
-
 }
 
-
-
-// get xml data from api based on main id
-//
+// get latest videos as xml data from api based on main id
 function xLatestGetter() {
-
-$.ajax({
+	$.ajax({
 		type:'GET',
 		url:'https://smileschool-api.hbtn.info/xml/latest-videos',
 		dataType: 'xml',
@@ -112,11 +107,9 @@ $.ajax({
 	});
 }
 
-// get xml data from api based on main id
-//
+// get courses as xml data from api based on main id
 function xCourseGetter() {
-
-$.ajax({
+	$.ajax({
 		type:'GET',
 		url:'https://smileschool-api.hbtn.info/xml/courses',
 		dataType: 'xml',
@@ -148,13 +141,10 @@ $.ajax({
 			$( "#emptycourses .carousel-item" ).first().addClass( "active" );
 		}
 	});
-
 }
-
 
 // do it 
 $( document ).ready(function() {
-
   $('.navbar-toggle').focus(function () { $.addClass('border border-warning'); });
 
   let mainId = getMainId();
@@ -172,5 +162,4 @@ $( document ).ready(function() {
       xCourseGetter();
     }
   }, 1200);
-
 });
