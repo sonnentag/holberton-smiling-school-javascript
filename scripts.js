@@ -38,6 +38,8 @@ function jApiGetter(carSection) {
 
 // get xml data from api based on main id
 function xApiGetter(mainId) {
+	// copied all to xml-scripts.js to meet class project deadline
+	// for separate task since including here was not required
 }
 
 // build div of data from template based mainId
