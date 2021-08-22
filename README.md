@@ -1,6 +1,5 @@
 ## holberton-smiling-school-javascript
-In this project, you will finalize the previous project 0x0B. Implement a design with bootstrap and make some parts dynamic with Javascript (JQuery exactly).
 
-You will reuse final files of 0x0B. Implement a design with bootstrap and update them.
+![screenshots](https://github.com/sonnentag/holberton-smiling-school-javascript/blob/main/images/hbtn-ss.png?raw=true)
 
-You will use all HTML/CSS/Accessibility/Responsive design/Bootstrap/Javascript knowledges that you learned previously.
+In this project, we reuse final files from our previous project '0x0B. Implement a design with bootstrap' and make some parts dynamic with Javascript/JQuery, using all HTML/CSS/Accessibility/Responsive design/Bootstrap/Javascript knowledges that we've learned previously.
